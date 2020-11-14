@@ -18,10 +18,9 @@ class ToneCalculator {
 
   get chordTone() {
     // return this.semiToneOfChord;
-    if (semiTones[this.scale].chordTones.includes(this.semiToneOfChord)) {
-      return chordTones[this.semiToneOfChord];
-    }
-
+    return this.chordTones.includes(this.semiToneOfChord)
+      ? chordTones[this.semiToneOfChord]
+      : null;
   }
 
   get semiTone() {
