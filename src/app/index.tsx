@@ -43,7 +43,7 @@ function Index() {
       </header>
 
       <main className="container">
-        <table>
+        <table className="centered responsive-table">
           <thead>
             <tr>
               <th></th>

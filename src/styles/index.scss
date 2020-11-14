@@ -12,8 +12,8 @@ header {
 
 header,
 .page-footer {
-  @extend .brown;
-  // @extend .lighten-4;
+  @extend .blue-grey;
+  @extend .lighten-2;
 
   label {
     @extend .white-text;
