@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Fretboard
+
+See it at https://dominant-seven-sharp-nine.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6c363611-72f3-4f4a-851e-5e5aa184be09/deploy-status)](https://app.netlify.com/sites/dominant-seven-sharp-nine/deploys)
+
+# Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
