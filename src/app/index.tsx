@@ -71,9 +71,19 @@ function Index() {
 
       <footer className="page-footer">
         <div className="container">
-          <p>
-            Fretboard by <a href="https://github.com/allegromanontroppo">Mark Holland</a>
-          </p>
+          <div className="row">
+            <div className="col m6 s12">
+              Fretboard by <a href="https://github.com/allegromanontroppo">Mark Holland</a>
+            </div>
+            <div className="col m6 s12">
+              <a href="https://github.com/allegromanontroppo/fretboard" className="hide-on-med-and-up">
+                Source Code
+              </a>
+              <a href="https://github.com/allegromanontroppo/fretboard" className="right hide-on-small-only">
+                Source Code
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </>
