@@ -1,37 +1,33 @@
 
 import Note, { notesArray } from "./note";
-import Scale, { semiTones, chordTones } from "./scale";
+import Scale, { semiTonesFromRootNote, scaleTones, Tone } from "./scale";
 
 class ToneCalculator {
-  private semiToneOfChord: number;
+  private semiTonesFromRootNote: number;
 
   constructor(
-    private note: string,
-    private chord: Note,
+    note: string,
+    chord: Note,
     private scale: Scale) {
 
     const noteSemiTonesFromA = notesArray.indexOf(note.toUpperCase());
-    const chordSemiTonesFromA = notesArray.indexOf(chord.toUpperCase());
+    const chordRootSemiTonesFromA = notesArray.indexOf(chord.toUpperCase());
 
-    this.semiToneOfChord = (12 + (noteSemiTonesFromA - chordSemiTonesFromA)) % 12
+    this.semiTonesFromRootNote = (12 + (noteSemiTonesFromA - chordRootSemiTonesFromA)) % 12;
   }
 
   get chordTone() {
-    // return this.semiToneOfChord;
-    return this.chordTones.includes(this.semiToneOfChord)
-      ? chordTones[this.semiToneOfChord]
+    return this.hasChordTone
+      ? semiTonesFromRootNote[this.semiTonesFromRootNote]
       : null;
   }
 
-  get semiTone() {
-    return this.semiToneOfChord;
-    // const index = (this.semiTonesFromA + this.chord) % 12;
-
-    // return index
+  get isRootNote() {
+    return this.chordTone === Tone.Root;
   }
 
-  get chordTones() {
-    return semiTones[this.scale].chordTones;
+  private get hasChordTone() {
+    return scaleTones[this.scale].chordTones.includes(this.semiTonesFromRootNote);
   }
 }
 

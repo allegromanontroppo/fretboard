@@ -37,6 +37,21 @@ main {
   flex: 1 0 auto;
 }
 
+.tone {
+  @extend .grey;
+  @extend .white-text;
+
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: medium;
+
+  &.root {
+    @extend .red;
+  }
+}
+
 .dot .material-icons {
   font-size: small;
 }

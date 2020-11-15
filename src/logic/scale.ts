@@ -6,7 +6,25 @@ enum Scale {
   m7 = 'm7',
 };
 
-const semiTones = {
+enum Tone {
+  Root = 'R',
+  FlatThird = '♭3',
+  Third = '3',
+  Fifth = '5',
+  FlatSeventh = '♭7',
+  Seventh = '7',
+};
+
+const semiTonesFromRootNote: { [key: number]: Tone } = {
+  0: Tone.Root,
+  3: Tone.FlatThird,
+  4: Tone.Third,
+  7: Tone.Fifth,
+  10: Tone.FlatSeventh,
+  11: Tone.Seventh,
+};
+
+const scaleTones = {
   [Scale.Major]: {
     chordTones: [0, 4, 7],
   },
@@ -24,14 +42,5 @@ const semiTones = {
   },
 };
 
-const chordTones: { [key: number]: string } = {
-  0: 'root',
-  3: 'flat third',
-  4: 'third',
-  7: 'fifth',
-  10: 'flat seventh',
-  11: 'seventh',
-};
-
 export default Scale;
-export { semiTones, chordTones };
+export { Tone, semiTonesFromRootNote, scaleTones };

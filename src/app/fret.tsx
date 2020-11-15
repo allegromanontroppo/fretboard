@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import classNames from "classnames";
 
 import ToneCalculator from "../logic/tone-calculator";
 
@@ -12,7 +13,14 @@ interface Props {
 function Fret({ note }: Props) {
   const toneCalculator = new ToneCalculator(note, useContext(ChordContext), useContext(ScaleContext));
 
-  return <>{toneCalculator.chordTone}</>;
+  const $dot = (() => {
+    const chordTone = toneCalculator.chordTone;
+    if (chordTone) {
+      return <span className={classNames("tone", { root: toneCalculator.isRootNote })}>{chordTone}</span>;
+    }
+  })();
+
+  return <>{$dot}</>;
 }
 
 export default Fret;
