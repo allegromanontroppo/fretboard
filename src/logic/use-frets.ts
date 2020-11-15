@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-function useFrets(): [number[], (value: number) => void, (value: number) => void] {
-  const [[low, high], setFrets] = useState(() => {
-    const defaultValue = (localStorage.getItem('frets') || '').split(',').filter(Boolean).map((value) => parseInt(value));
-
-    return defaultValue.length ? defaultValue : [0, 9];
-  });
-
-  useEffect(function () {
-    localStorage.setItem('frets', [low, high].join(','));
-  }, [low, high]);
+function useFrets(defaultValue: [number, number]): [number[], (value: number) => void, (value: number) => void] {
+  const [[low, high], setFrets] = useState(defaultValue.length ? defaultValue : [0, 5]);
 
   function setLow(value: number) {
     setFrets([value, high]);

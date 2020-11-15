@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
+import qs from "querystringify";
 
 import Note from "../logic/note";
 import Scale from "../logic/scale";
 
 import useFrets from "../logic/use-frets";
-import useChord from "../logic/use-chord";
-import useScale from "../logic/use-scale";
+import useHistory from "../logic/use-history";
 
 import ChordContext from "./chord-context";
 import ScaleContext from "./scale-context";
@@ -19,10 +19,30 @@ import "../styles/index.scss";
 
 const strings = ["e", "b", "g", "d", "a", "E"];
 
+interface DefaultValues {
+  frets: [number, number];
+  chord?: Note;
+  scale?: Scale;
+}
+
+const defaultValues = (() => {
+  const values = qs.parse(window.location.hash) as { [key: string]: string };
+
+  return {
+    ...values,
+    frets: (values["frets"] || "")
+      .split("-")
+      .map((v) => parseInt(v))
+      .filter(isFinite),
+  } as DefaultValues;
+})();
+
 function Index() {
-  const [frets, setLow, setHigh] = useFrets();
-  const [chord, setChord] = useChord();
-  const [scale, setScale] = useScale();
+  const [frets, setLow, setHigh] = useFrets(defaultValues.frets);
+  const [chord, setChord] = useState(defaultValues.chord || Note.A);
+  const [scale, setScale] = useState(defaultValues.scale || Scale.Major);
+
+  useHistory({ frets, chord, scale });
 
   return (
     <>
