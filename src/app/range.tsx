@@ -1,12 +1,12 @@
 import React from "react";
 
-interface Props {
+interface RangeProps {
   frets: number[];
   setLow: (value: number) => void;
   setHigh: (value: number) => void;
 }
 
-function Range({ frets, setLow, setHigh }: Props) {
+function Range({ frets, setLow, setHigh }: RangeProps) {
   const low = Math.min(...frets);
   const high = Math.max(...frets);
 

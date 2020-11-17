@@ -4,12 +4,12 @@ import NoteCalculator from "../logic/note-calculator";
 
 import Fret from "./fret";
 
-interface Props {
+interface StringProps {
   string: string;
   frets: number[];
 }
 
-function String({ string, frets }: Props) {
+function String({ string, frets }: StringProps) {
   const noteCalculator = new NoteCalculator(string);
 
   return (

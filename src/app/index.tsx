@@ -9,6 +9,7 @@ import useHistory from "../logic/use-history";
 
 import ChordContext from "./chord-context";
 import ScaleContext from "./scale-context";
+import AllTonesContext from "./all-tones-context";
 
 import Range from "./range";
 import Selector from "./selector";
@@ -41,6 +42,7 @@ function Index() {
   const [frets, setLow, setHigh] = useFrets(defaultValues.frets);
   const [chord, setChord] = useState(defaultValues.chord || Note.A);
   const [scale, setScale] = useState(defaultValues.scale || Scale.Major);
+  const [allTones, setAllTones] = useState(false);
 
   useHistory({ frets, chord, scale });
 
@@ -55,7 +57,16 @@ function Index() {
             <div className="col s6 m2">
               <Selector title="Scale" value={scale} object={Scale} onChange={(value) => setScale(value as Scale)} />
             </div>
-            <div className="col s12 offset-m2 m6">
+            <div className="col s6 m2">
+              <form>
+                <p>&nbsp;</p>
+                <label>
+                  <input type="checkbox" className="filled-in" onChange={(e) => setAllTones(e.target.checked)} />
+                  <span>All tones</span>
+                </label>
+              </form>
+            </div>
+            <div className="col s12  m6">
               <Range frets={frets} setLow={setLow} setHigh={setHigh} />
             </div>
           </div>
@@ -75,11 +86,13 @@ function Index() {
           <tbody>
             <ChordContext.Provider value={chord}>
               <ScaleContext.Provider value={scale}>
-                {strings.map((string) => (
-                  <tr key={string}>
-                    <String string={string} frets={frets} />
-                  </tr>
-                ))}
+                <AllTonesContext.Provider value={allTones}>
+                  {strings.map((string) => (
+                    <tr key={string}>
+                      <String string={string} frets={frets} />
+                    </tr>
+                  ))}
+                </AllTonesContext.Provider>
               </ScaleContext.Provider>
             </ChordContext.Provider>
             <tr>

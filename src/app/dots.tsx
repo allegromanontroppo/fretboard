@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+interface DotsProps {
   frets: number[];
 }
 
@@ -12,7 +12,7 @@ const dotCount: { [key: number]: number } = {
   9: 1,
 };
 
-function Dots({ frets }: Props) {
+function Dots({ frets }: DotsProps) {
   return (
     <>
       <td></td>

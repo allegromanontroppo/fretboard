@@ -2,25 +2,31 @@ import React, { useContext } from "react";
 import classNames from "classnames";
 
 import ToneCalculator from "../logic/tone-calculator";
+import { Tone } from "../logic/scale";
 
 import ChordContext from "./chord-context";
 import ScaleContext from "./scale-context";
+import AllTonesContext from "./all-tones-context";
 
-interface Props {
+interface DotProps {
+  tone: Tone;
+  isRootNote: boolean;
+  isChordTone: boolean;
+}
+interface FretProps {
   note: string;
 }
 
-function Fret({ note }: Props) {
+function Dot({ tone, isRootNote, isChordTone }: DotProps) {
+  return <span className={classNames("tone", { root: isRootNote, chord: isChordTone })}>{tone}</span>;
+}
+
+function Fret({ note }: FretProps) {
   const toneCalculator = new ToneCalculator(note, useContext(ChordContext), useContext(ScaleContext));
 
-  const $dot = (() => {
-    const chordTone = toneCalculator.chordTone;
-    if (chordTone) {
-      return <span className={classNames("tone", { root: toneCalculator.isRootNote })}>{chordTone}</span>;
-    }
-  })();
+  const tone = useContext(AllTonesContext) ? toneCalculator.tone : toneCalculator.chordTone;
 
-  return <>{$dot}</>;
+  return tone && <Dot tone={tone} isRootNote={toneCalculator.isRootNote} isChordTone={toneCalculator.isChordTone} />;
 }
 
 export default Fret;

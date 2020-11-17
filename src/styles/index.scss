@@ -50,6 +50,10 @@ main {
   &.root {
     @extend .red;
   }
+
+  &:not(.root):not(.chord) {
+    @extend .lighten-1;
+  }
 }
 
 .dot .material-icons {

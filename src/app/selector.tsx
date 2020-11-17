@@ -3,20 +3,20 @@ import React from "react";
 import Note from "../logic/note";
 import Scale from "../logic/scale";
 
-interface Props {
+interface SelectorProps {
   title: string;
   value: Note | Scale;
   object: object;
   onChange: (value: string) => void;
 }
 
-function Selector({ title, value, object, onChange }: Props) {
+function Selector({ title, value, object, onChange }: SelectorProps) {
   const id = `selector-${title}`;
 
   return (
     <form>
       <label htmlFor={id}>{title}</label>
-      <p className="range-field">
+      <p>
         <select id={id} className="browser-default" value={value} onChange={(e) => onChange(e.target.value)}>
           <option value="" disabled>
             Choose {title}
