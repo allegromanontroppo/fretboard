@@ -14,18 +14,18 @@ const dotCount: { [key: number]: number } = {
 
 function Dots({ frets }: DotsProps) {
   return (
-    <>
-      <td></td>
+    <div className="dots">
+      <div></div>
       {frets.map((fret) => (
-        <td key={fret} className="dot">
+        <div key={fret} className="dot">
           {Array.from(Array((fret > 0 && dotCount[fret % 12]) || 0), (_, i) => (
             <i className="material-icons" key={i}>
               fiber_manual_record
             </i>
           ))}
-        </td>
+        </div>
       ))}
-    </>
+    </div>
   );
 }
 

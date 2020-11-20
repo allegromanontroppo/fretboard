@@ -13,14 +13,12 @@ function String({ string, frets }: StringProps) {
   const noteCalculator = new NoteCalculator(string);
 
   return (
-    <>
-      <th>{string}</th>
+    <div className="string">
+      <div>{string}</div>
       {frets.map((fret) => (
-        <td key={fret}>
-          <Fret note={noteCalculator.noteAt(fret)} />
-        </td>
+        <Fret note={noteCalculator.noteAt(fret)} key={fret} />
       ))}
-    </>
+    </div>
   );
 }
 

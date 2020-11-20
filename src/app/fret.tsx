@@ -26,7 +26,11 @@ function Fret({ note }: FretProps) {
 
   const tone = useContext(AllTonesContext) ? toneCalculator.tone : toneCalculator.chordTone;
 
-  return tone && <Dot tone={tone} isRootNote={toneCalculator.isRootNote} isChordTone={toneCalculator.isChordTone} />;
+  return (
+    <div className="fret">
+      {tone && <Dot tone={tone} isRootNote={toneCalculator.isRootNote} isChordTone={toneCalculator.isChordTone} />}
+    </div>
+  );
 }
 
 export default Fret;

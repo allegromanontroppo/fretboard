@@ -35,6 +35,28 @@ header,
 
 main {
   flex: 1 0 auto;
+  padding: 1rem 0;
+}
+
+.fretboard > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+
+  > div {
+    flex-basis: 30px;
+    padding: 15px 5px;
+    text-align: center;
+
+    &.dot {
+      flex-basis: auto;
+    }
+  }
+}
+
+.string,
+.dots {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .tone {

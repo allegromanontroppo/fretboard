@@ -74,32 +74,24 @@ function Index() {
       </header>
 
       <main className="container">
-        <table className="centered responsive-table">
-          <thead>
-            <tr>
-              <th></th>
-              {frets.map((fret) => (
-                <th key={fret}>{fret}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            <ChordContext.Provider value={chord}>
-              <ScaleContext.Provider value={scale}>
-                <AllTonesContext.Provider value={allTones}>
-                  {strings.map((string) => (
-                    <tr key={string}>
-                      <String string={string} frets={frets} />
-                    </tr>
-                  ))}
-                </AllTonesContext.Provider>
-              </ScaleContext.Provider>
-            </ChordContext.Provider>
-            <tr>
-              <Dots frets={frets} />
-            </tr>
-          </tbody>
-        </table>
+        <div className="fretboard">
+          <div className="fret-numbers">
+            <div></div>
+            {frets.map((fret) => (
+              <div key={fret}>{fret}</div>
+            ))}
+          </div>
+          <ChordContext.Provider value={chord}>
+            <ScaleContext.Provider value={scale}>
+              <AllTonesContext.Provider value={allTones}>
+                {strings.map((string) => (
+                  <String frets={frets} string={string} />
+                ))}
+              </AllTonesContext.Provider>
+            </ScaleContext.Provider>
+          </ChordContext.Provider>
+          <Dots frets={frets} />
+        </div>
       </main>
 
       <footer className="page-footer">
