@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import NoteCalculator from "../logic/note-calculator";
+import NoteCalculator from '../logic/note-calculator';
 
-import Fret from "./fret";
+import Fret from './fret';
 
 interface StringProps {
   string: string;

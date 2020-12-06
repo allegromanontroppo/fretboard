@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function useFrets(defaultValue: [number, number]): [number[], (value: number) => void, (value: number) => void] {
   const [[low, high], setFrets] = useState(defaultValue.length ? defaultValue : [0, 5]);

@@ -8,7 +8,7 @@ function useHistory(attributes: { [key: string]: string | number[] }) {
     const hash = {
       ...attributes,
       frets: [frets[0], frets[frets.length - 1]].join('-'),
-    }
+    };
 
     window.location.hash = qs.stringify(hash, '#');
     // eslint-disable-next-line react-hooks/exhaustive-deps

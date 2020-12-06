@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Note from "../logic/note";
-import Scale from "../logic/scale";
+import Note from '../logic/note';
+import Scale from '../logic/scale';
 
 interface SelectorProps {
   title: string;

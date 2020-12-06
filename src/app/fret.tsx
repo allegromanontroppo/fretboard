@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import classNames from "classnames";
+import React, { useContext } from 'react';
+import classNames from 'classnames';
 
-import ToneCalculator from "../logic/tone-calculator";
-import { Tone } from "../logic/scale";
+import ToneCalculator from '../logic/tone-calculator';
+import { Tone } from '../logic/scale';
 
-import ChordContext from "./chord-context";
-import ScaleContext from "./scale-context";
-import AllTonesContext from "./all-tones-context";
+import ChordContext from './chord-context';
+import ScaleContext from './scale-context';
+import AllTonesContext from './all-tones-context';
 
 interface DotProps {
   tone: Tone;
@@ -18,7 +18,7 @@ interface FretProps {
 }
 
 function Dot({ tone, isRootNote, isChordTone }: DotProps) {
-  return <span className={classNames("tone", { root: isRootNote, chord: isChordTone })}>{tone}</span>;
+  return <span className={classNames('tone', { root: isRootNote, chord: isChordTone })}>{tone}</span>;
 }
 
 function Fret({ note }: FretProps) {

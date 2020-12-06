@@ -4,7 +4,7 @@ enum Scale {
   Dominant = 'Dominant',
   Maj7 = 'Maj7',
   m7 = 'm7',
-};
+}
 
 enum Tone {
   Root = 'R',
@@ -18,7 +18,7 @@ enum Tone {
   Sixth = '6',
   FlatSeventh = '♭7',
   Seventh = '7',
-};
+}
 
 const semiTonesFromRootNote: { [key: number]: Tone } = {
   0: Tone.Root,

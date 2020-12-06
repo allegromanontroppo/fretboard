@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-import Scales from "../logic/scale";
+import Scales from '../logic/scale';
 
 export default React.createContext(Scales.Major);

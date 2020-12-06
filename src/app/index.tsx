@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import qs from "querystringify";
+import React, { useState } from 'react';
+import qs from 'querystringify';
 
-import Note from "../logic/note";
-import Scale from "../logic/scale";
+import Note from '../logic/note';
+import Scale from '../logic/scale';
 
-import useFrets from "../logic/use-frets";
-import useHistory from "../logic/use-history";
+import useFrets from '../logic/use-frets';
+import useHistory from '../logic/use-history';
 
-import ChordContext from "./chord-context";
-import ScaleContext from "./scale-context";
-import AllTonesContext from "./all-tones-context";
+import ChordContext from './chord-context';
+import ScaleContext from './scale-context';
+import AllTonesContext from './all-tones-context';
 
-import Range from "./range";
-import Selector from "./selector";
-import String from "./string";
-import Dots from "./dots";
+import Range from './range';
+import Selector from './selector';
+import String from './string';
+import Dots from './dots';
 
-import "../styles/index.scss";
+import '../styles/index.scss';
 
-const strings = ["e", "b", "g", "d", "a", "E"];
+const strings = ['e', 'b', 'g', 'd', 'a', 'E'];
 
 interface DefaultValues {
   frets: [number, number];
@@ -31,8 +31,8 @@ const defaultValues = (() => {
 
   return {
     ...values,
-    frets: (values["frets"] || "")
-      .split("-")
+    frets: (values['frets'] || '')
+      .split('-')
       .map((v) => parseInt(v))
       .filter(isFinite),
   } as DefaultValues;

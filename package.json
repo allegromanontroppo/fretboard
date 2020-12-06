@@ -15,6 +15,7 @@
     "classnames": "^2.2.6",
     "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
     "querystringify": "^2.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -27,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write \"**/*.{css,js,jsx,json,md,ts,tsx,yml}\""
   },
   "eslintConfig": {
     "extends": [

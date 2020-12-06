@@ -1,15 +1,10 @@
-
-import Note, { notesArray } from "./note";
-import Scale, { semiTonesFromRootNote, scaleTones, Tone, IToneType } from "./scale";
+import Note, { notesArray } from './note';
+import Scale, { semiTonesFromRootNote, scaleTones, Tone, IToneType } from './scale';
 
 class ToneCalculator {
   private semiTonesFromRootNote: number;
 
-  constructor(
-    note: string,
-    chord: Note,
-    private scale: Scale) {
-
+  constructor(note: string, chord: Note, private scale: Scale) {
     const noteSemiTonesFromA = notesArray.indexOf(note.toUpperCase());
     const chordRootSemiTonesFromA = notesArray.indexOf(chord.toUpperCase());
 
@@ -17,15 +12,11 @@ class ToneCalculator {
   }
 
   get tone() {
-    return this.isScaleTone
-      ? semiTonesFromRootNote[this.semiTonesFromRootNote]
-      : null;
+    return this.isScaleTone ? semiTonesFromRootNote[this.semiTonesFromRootNote] : null;
   }
 
   get chordTone() {
-    return this.isChordTone
-      ? semiTonesFromRootNote[this.semiTonesFromRootNote]
-      : null;
+    return this.isChordTone ? semiTonesFromRootNote[this.semiTonesFromRootNote] : null;
   }
 
   get isRootNote() {

@@ -1,4 +1,4 @@
-import { notesArray } from "./note";
+import { notesArray } from './note';
 
 class NoteCalculator {
   private semiTonesFromA: number;
